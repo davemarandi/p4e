@@ -8,8 +8,8 @@ serviceurl = 'https://py4e-data.dr-chuck.net/opengeo?'
 ctx = ssl.create_default_context()
 ctx.check_hostname = False
 ctx.verify_mode = ssl.CERT_NONE
-
-while True:
+n=1
+while n<=1:
     address = input('Enter location: ')
     if len(address) < 1: break
 
@@ -38,14 +38,7 @@ while True:
         print('==== Object not found ====')
         print(data)
         break
-
-    # print(json.dumps(js, indent=4))
-
-    lat = js['features'][0]['properties']['lat']
-    lon = js['features'][0]['properties']['lon']
-    print('lat', lat, 'lon', lon)
-    location = js['features'][0]['properties']['formatted']
-    print(location)
-
-
-
+    #print (js)
+    plus_code=js['features'][0]['properties']['plus_code']
+    print (plus_code)
+    n+=1
